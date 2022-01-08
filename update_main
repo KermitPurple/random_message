@@ -1,6 +1,4 @@
 #!/bin/sh
 [[ $# = 2 ]] || (>&2 echo "Need two args. seed and message" && exit 1)
-seed=$1
-hex=`./gen.py $seed "$2"`
-[[ $? = 0 ]] || (>&2 echo "Error in gen script" && exit 1)
-sed -i '' "3s/(.*)/($seed)/;6s/'.*'/'$hex'/" main.py
+./gen.py $1 "$2" > main.py
+
