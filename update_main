@@ -4,4 +4,3 @@ seed=$1
 hex=`./gen.py $seed "$2"`
 [[ $? = 0 ]] || (>&2 echo "Error in gen script" && exit 1)
 sed -i '' "3s/(.*)/($seed)/;6s/'.*'/'$hex'/" main.py
-
