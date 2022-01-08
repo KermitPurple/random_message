@@ -2,6 +2,12 @@
 import sys, random
 
 def gen_hex_str(seed: int, message: str) -> str:
+    '''
+    generate a hex string that can be used to output message
+    when using the same seed
+    :seed: int; the seed to be passed to random.seed function
+    :message: str; the message to be encoded into a hex string
+    '''
     random.seed(seed)
     extra = random.Random()
     arr = bytearray()
@@ -13,6 +19,11 @@ def gen_hex_str(seed: int, message: str) -> str:
     return arr.hex().upper()
 
 def gen_main_script(seed: int, message: str) -> str:
+    '''
+    generate a script that will output the message
+    :seed: int; the seed to be passed to random.seed function
+    :message: str; the message to be encoded into a hex string
+    '''
     return f'''#!/usr/bin/env python3
 import random
 random.seed({seed})
