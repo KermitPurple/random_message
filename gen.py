@@ -10,7 +10,7 @@ def gen_hex_str(seed: int, message: str) -> str:
             arr.append(extra.randrange(256))
         else:
             arr.append(ord(ch) ^ random.randrange(256))
-    return arr.hex()
+    return arr.hex().upper()
 
 def gen_main_script(seed: int, message: str) -> str:
     return f'''#!/usr/bin/env python3
